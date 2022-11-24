@@ -1,10 +1,7 @@
 <div class="container-fluid">
   <div class="row g-2">
-    <app-event-item class="col-sm-4"></app-event-item>
-    <app-event-item class="col-sm-4"></app-event-item>
-    <app-event-item class="col-sm-4"></app-event-item>
-    <app-event-item class="col-sm-4"></app-event-item>
-    <app-event-item class="col-sm-4"></app-event-item>
-    <app-event-item class="col-sm-4"></app-event-item>
+    <div class="col-sm-4" *ngFor="let event of loadedEvents">
+      <app-event-item [event]="event"></app-event-item>
+    </div>
   </div>
 </div>

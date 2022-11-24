@@ -5,19 +5,27 @@
         <div class="container">
           <div class="row">
             <div class="col">
-              <h5 class="card-title">{{ title }}</h5>
+              <h5 class="card-title">{{ event.title }}</h5>
               <p class="card-text">
-                <small class="text-muted">{{ start_datetime }}</small>
+                <small class="text-muted">{{ event.start_datetime }}</small>
               </p>
             </div>
             <div class="col">
-              <p class="card-text">{{ start_datetime }}</p>
-              <p class="card-text">{{ end_datetime }}</p>
+              <p class="card-text">{{ event.start_datetime }}</p>
+              <p class="card-text">{{ event.end_datetime }}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <img [src]="event.images[0].full.url" alt="" class="card-img" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <p class="card-text">{{ event.description_short }}</p>
             </div>
           </div>
         </div>
-        <img [src]="img_src" alt="" class="card-img" />
-        <p class="card-text">{{ description }}</p>
       </div>
     </div>
   </div>
