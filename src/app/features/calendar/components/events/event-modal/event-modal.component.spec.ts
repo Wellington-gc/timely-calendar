@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { CalendarService } from '../../../services/calendar.service';
 import { EventModalComponent } from './event-modal.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 describe('EventModalComponent', () => {
   let component: EventModalComponent;
@@ -8,16 +10,16 @@ describe('EventModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EventModalComponent ]
-    })
-    .compileComponents();
+      imports: [HttpClientTestingModule],
+      declarations: [EventModalComponent],
+      providers: [CalendarService, NgbActiveModal]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(EventModalComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should be created', () => {
     expect(component).toBeTruthy();
   });
 });

@@ -1,4 +1,5 @@
 import { Calendar } from '../types/calendar.interface';
+import { Event } from '../types/event.interface';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
@@ -23,7 +24,7 @@ export class CalendarService {
   }
 
   getEvent(id: number, instance: string) {
-    return this.http.get(
+    return this.http.get<Event>(
       `${environment.baseApiUrl}/api/calendars/54705442/events/${id}/${instance}`,
       {
         headers: { 'x-api-key': environment.apiKey }
