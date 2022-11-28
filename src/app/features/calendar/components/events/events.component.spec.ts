@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { CalendarService } from '../../services/calendar.service';
 import { EventsComponent } from './events.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 describe('EventsComponent', () => {
   let component: EventsComponent;
@@ -8,15 +10,16 @@ describe('EventsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [EventsComponent]
+      imports: [HttpClientTestingModule, NgbModule],
+      declarations: [EventsComponent],
+      providers: [CalendarService]
     }).compileComponents();
 
     fixture = TestBed.createComponent(EventsComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should be created', () => {
     expect(component).toBeTruthy();
   });
 });

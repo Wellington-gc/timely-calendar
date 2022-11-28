@@ -2,7 +2,8 @@
   "root": true,
   "ignorePatterns": [
     "projects/**/*",
-    "**/*.css"
+    "**/*.css",
+    "**/*.scss"
   ],
   "overrides": [
     {

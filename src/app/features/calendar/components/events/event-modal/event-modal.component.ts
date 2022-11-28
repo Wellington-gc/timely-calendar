@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Event, EventData } from '../../../types/event.interface';
 import { CalendarService } from '../../../services/calendar.service';
 import { EventItem } from '../../../types/calendar.interface';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
@@ -11,7 +12,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 export class EventModalComponent implements OnInit {
   @Input() event: EventItem;
 
-  loadedEvent;
+  loadedEvent: EventData;
 
   constructor(
     private readonly calendarService: CalendarService,
@@ -19,9 +20,13 @@ export class EventModalComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.getCalendarEvent();
+  }
+
+  getCalendarEvent() {
     this.calendarService
       .getEvent(this.event.id, this.event.instance)
-      .subscribe((event: any) => {
+      .subscribe((event: Event) => {
         this.loadedEvent = event.data;
       });
   }
