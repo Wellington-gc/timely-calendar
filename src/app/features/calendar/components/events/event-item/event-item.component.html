@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-xs-12">
+    <div class="card" (click)="openModal(event)">
+      <img *ngIf="event.images" [src]="event.images[0]?.sizes.full.url" class="card-img-top"
+        style="object-fit: cover; width: 100%; height: 200px;" />
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <h5 class="card-title">{{ event.title }}</h5>
+          </div>
+          <div class="col">
+            <p class="card-text">{{ event.start_datetime | date:'MMM d E' }}</p>
+            <p class="card-text">{{ event.end_datetime | date:'MMM d E' }}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <p class="card-text">
+              <small class="text-dark">{{ event.start_datetime | date:'E MMM d @ hh:mma' }}</small>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <p *ngIf="event.description_short" class="card-text" style="text-align: justify;">
+              {{ event.description_short | truncate:[150] }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,1 +1,29 @@
-<app-event-list></app-event-list>
+<div class="container-fluid bg-light px-0 mb-2">
+  <!-- HEADER -->
+  <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light px-4 justify-content-between">
+
+    <form class="row row-cols-sm-auto">
+      <div class="col-12">
+        <div class="input-group">
+          <button class="btn btn-outline-secondary" (click)="selectToday()" type="button">Today</button>
+          <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="ngbDate" ngbDatepicker
+            #d="ngbDatepicker" (dateSelect)="onDateSelection($event)" />
+          <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()" type="button"></button>
+        </div>
+      </div>
+    </form>
+
+    <input class="form-control mr-sm-2 w-25" type="text" placeholder="Search" aria-label="Search"
+      (input)="onSearchQueryInput($event)">
+  </nav>
+
+
+  <!-- BODY -->
+  <div class="container-fluid">
+    <div class="row g-2">
+      <div class="col-xl-3 col-lg-4 col-md-6 col-xs-12" *ngFor="let event of loadedEvents">
+        <app-event-item [event]="event"></app-event-item>
+      </div>
+    </div>
+  </div>
+</div>
