@@ -4,10 +4,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CalendarModule } from './features/calendar/calendar.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, CalendarModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    CalendarModule,
+    HttpClientModule,
+    SharedModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

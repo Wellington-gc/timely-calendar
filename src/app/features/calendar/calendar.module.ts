@@ -1,14 +1,17 @@
 import { CalendarService } from './services/calendar.service';
 import { CommonModule } from '@angular/common';
-import { EventItemComponent } from './components/events/event-list/event-item/event-item.component';
-import { EventListComponent } from './components/events/event-list/event-list.component';
+import { EventItemComponent } from './components/events/event-item/event-item.component';
+import { EventModalComponent } from './components/events/event-modal/event-modal.component';
 import { EventsComponent } from './components/events/events.component';
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
-  declarations: [EventsComponent, EventListComponent, EventItemComponent],
+  declarations: [EventsComponent, EventItemComponent, EventModalComponent],
+  imports: [CommonModule, FormsModule, NgbModule, SharedModule],
   providers: [CalendarService],
-  exports: [EventsComponent],
-  imports: [CommonModule]
+  exports: [EventsComponent]
 })
 export class CalendarModule {}
