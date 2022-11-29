@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment';
 export interface GetCalendarDto {
   start_date_utc: number;
   term?: string;
+  page?: number;
 }
 
 @Injectable()
@@ -18,7 +19,7 @@ export class CalendarService {
       `${environment.baseApiUrl}/api/calendars/54705442/events`,
       {
         headers: { 'x-api-key': environment.apiKey },
-        params: { ...query }
+        params: { ...query, per_page: 30 }
       }
     );
   }
