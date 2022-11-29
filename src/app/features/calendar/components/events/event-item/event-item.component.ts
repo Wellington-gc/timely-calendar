@@ -9,10 +9,12 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./event-item.component.scss']
 })
 export class EventItemComponent {
+  // Receive the event item as a Input
   @Input() event: EventItem;
 
   constructor(private readonly modalService: NgbModal) {}
 
+  // Open the modal on click
   openModal(event: EventItem) {
     const modalRef = this.modalService.open(EventModalComponent, {
       ariaLabelledBy: 'modal-basic-title',
