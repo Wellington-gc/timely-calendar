@@ -20,10 +20,16 @@
 
   <!-- BODY -->
   <div class="container-fluid">
-    <div class="row g-2">
-      <div class="col-xl-3 col-lg-4 col-md-6 col-xs-12" *ngFor="let event of loadedEvents">
-        <app-event-item [event]="event"></app-event-item>
-      </div>
+    <div infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="0" (scrolled)="onScroll()"
+      [scrollWindow]="true">
+      <ngx-masonry [ordered]=" true" style="overflow-x: hidden;">
+        <div class="row">
+          <div ngxMasonryItem class="col-xl-3 col-lg-4 col-md-6 col-sm-12" style="padding: 10px;"
+            *ngFor="let event of loadedEvents">
+            <app-event-item [event]="event"></app-event-item>
+          </div>
+        </div>
+      </ngx-masonry>
     </div>
   </div>
 </div>

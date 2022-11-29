@@ -18,6 +18,7 @@ import { EventItem } from '../../types/calendar.interface';
 export class EventsComponent implements OnInit, OnDestroy {
   ngbDate: NgbDateStruct;
   loadedEvents: EventItem[] = [];
+  page = 1;
 
   private readonly searchSubject = new Subject<string | undefined>();
   private searchSubscription?: Subscription;
@@ -31,7 +32,7 @@ export class EventsComponent implements OnInit, OnDestroy {
     this.ngbDate = this.ngbCalendar.getToday();
 
     this.calendarService
-      .getCalendar({ start_date_utc: this.getUnixDate() })
+      .getCalendar({ start_date_utc: this.getUnixDate(), page: this.page })
       .subscribe((calendar) => {
         this.loadedEvents = calendar.data.items;
       });
@@ -85,5 +86,13 @@ export class EventsComponent implements OnInit, OnDestroy {
   selectToday() {
     this.ngbDate = this.ngbCalendar.getToday();
     this.onDateSelection(this.ngbDate);
+  }
+
+  onScroll() {
+    this.calendarService
+      .getCalendar({ start_date_utc: this.getUnixDate(), page: ++this.page })
+      .subscribe((calendar) => {
+        this.loadedEvents.push(...calendar.data.items);
+      });
   }
 }

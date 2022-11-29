@@ -3,6 +3,7 @@ import { CalendarService } from '../../services/calendar.service';
 import { EventsComponent } from './events.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxMasonryModule } from 'ngx-masonry';
 
 describe('EventsComponent', () => {
   let component: EventsComponent;
@@ -10,7 +11,7 @@ describe('EventsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule, NgbModule],
+      imports: [HttpClientTestingModule, NgbModule, NgxMasonryModule],
       declarations: [EventsComponent],
       providers: [CalendarService]
     }).compileComponents();
