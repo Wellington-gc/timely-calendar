@@ -6,8 +6,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-event-modal',
-  templateUrl: './event-modal.component.html',
-  styleUrls: ['./event-modal.component.css']
+  templateUrl: './event-modal.component.html'
 })
 export class EventModalComponent implements OnInit {
   @Input() event: EventItem;

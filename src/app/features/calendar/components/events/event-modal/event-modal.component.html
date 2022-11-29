@@ -1,8 +1,11 @@
+<!-- Header -->
 <div *ngIf="loadedEvent.images" class="modal-header">
   <img [src]="loadedEvent.images[0]?.sizes.full.url" class="img-fluid" style="max-width: 70%; max-height: 70%;" />
   <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"
     style="position:absolute; top:15px; right:15px;"></button>
 </div>
+
+<!-- Body -->
 <div class="modal-body py-0">
   <div class="d-block main-content">
     <div class="content-text p-4">
@@ -11,6 +14,8 @@
     </div>
   </div>
 </div>
+
+<!-- Footer -->
 <div class="modal-footer">
   <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
 </div>

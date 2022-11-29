@@ -1,26 +1,65 @@
-# TimelyCalendar
+# Timely Calendar App
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
 
-## Development server
+- Use the following URL to access the App: [Timely Calendar App](https://timely-calendar.vercel.app/)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+# Colaborating to the Project
 
-## Code scaffolding
+## How to install
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Dependencies
 
-## Build
+- Install [Node.js v18](https://nodejs.org/en/)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Installation
 
-## Running unit tests
+After cloning the repository, follow these steps:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+$ npm install
+```
 
-## Running end-to-end tests
+## Running the app
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+# development
+$ npm run start
+
+# production mode
+$ npm run start:prod
+```
+
+## Build the app
+
+```bash
+# production build
+$ ng build
+
+# development build
+$ ng watch
+```
+
+## Test
+
+```bash
+# unit tests
+$ npm run test
+
+# unit tests production mode
+$ npm run test:prod
+```
+
+## Conventions
+
+### Resources
+
+In this project, we are using the Angular resources system. This means that each feature has its own module, components and services.
+For creating new components you can use the following script:
+
+```bash
+$ ng g c <componentName>
+```
 
 ## Further help
 

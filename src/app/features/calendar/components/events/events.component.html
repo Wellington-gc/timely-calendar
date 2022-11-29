@@ -1,18 +1,27 @@
 <div class="container-fluid bg-light px-0 mb-2">
+
   <!-- HEADER -->
   <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light px-4 justify-content-between">
 
+    <!-- Date Picker -->
     <form class="row row-cols-sm-auto">
       <div class="col-12">
         <div class="input-group">
+
+          <!-- Button to select the current day -->
           <button class="btn btn-outline-secondary" (click)="selectToday()" type="button">Today</button>
+
+          <!-- Date Picker Component -->
           <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="ngbDate" ngbDatepicker
             #d="ngbDatepicker" (dateSelect)="onDateSelection($event)" />
+
+          <!-- Toggle the Date Picker Component -->
           <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()" type="button"></button>
         </div>
       </div>
     </form>
 
+    <!-- Input Search Field -->
     <input class="form-control mr-sm-2 w-25" type="text" placeholder="Search" aria-label="Search"
       (input)="onSearchQueryInput($event)">
   </nav>
@@ -20,12 +29,20 @@
 
   <!-- BODY -->
   <div class="container-fluid">
+
+    <!-- Infinite Scroll Component -->
     <div infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="0" (scrolled)="onScroll()"
       [scrollWindow]="true">
+
+      <!-- Masonry Grid Style Component -->
       <ngx-masonry [ordered]=" true" style="overflow-x: hidden;">
         <div class="row">
+
+          <!-- Scroll through event list -->
           <div ngxMasonryItem class="col-xl-3 col-lg-4 col-md-6 col-sm-12" style="padding: 10px;"
             *ngFor="let event of loadedEvents">
+
+            <!-- Event Item Component -->
             <app-event-item [event]="event"></app-event-item>
           </div>
         </div>

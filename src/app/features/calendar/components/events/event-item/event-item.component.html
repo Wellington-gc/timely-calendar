@@ -1,10 +1,16 @@
 <div class="row">
   <div class="col-xs-12">
     <div class="card" (click)="openModal(event)">
+
+      <!-- Content Image -->
       <img *ngIf="event.images" [src]="event.images[0]?.sizes.full.url" class="rounded"
         style="display: block; margin-top: 10px; margin-left: auto; margin-right: auto; width: 250px;" />
+
+      <!-- Card Body -->
       <div class="card-body">
         <div class="row">
+
+          <!-- Content Information -->
           <div class="col-9">
             <h5 class="card-title text-wrap">{{ event.title }}</h5>
             <small class="text-dark">{{ event.start_datetime | date:'E MMM d @ hh:mma' }}</small>
@@ -12,6 +18,8 @@
               {{ event.description_short | truncate:[150] }}
             </p>
           </div>
+
+          <!-- Date information -->
           <div class="col-3">
             <div class="p-2" style="border: 1px solid; border-radius: 10px;">
               <div>
